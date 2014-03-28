@@ -8,7 +8,7 @@ To determine which pages should be included in the Sitemap, it leverages
 BrowserCMS' menu_items helper. This means that hidden or unpublished pages will
 not be included. Empty sections are also ignored.
 
-The xml document is exposed at /sitemaps/google.xml, but you might need to add ?format=xml to view this in a browser.
+The xml document is exposed at /sitemaps/google.xml
 
 ## Installation
 
@@ -37,17 +37,6 @@ like this:
     menu_items(:depth => 2, :show_all_siblings => true, :page => Page.find_by_path('/')
 
 The module's configuration (currently just one value) is written to a global key
-value store provided by the Settings module. 
+value store provided by the Settings module.
 
 A depth value of 0 (the default) will include all published pages.
-
-## Troubleshooting
-
-In your browser, when you test the /sitemaps/google.xml you will need to call it using the xml format, otherwise it will return a 406 unacceptable. This occurs since the browser is specifying it want HTML. Call like so instead:
-
-```
-http://localhost:3000/sitemaps/google.xml?format=xml
-```
-
-
-
